@@ -32,7 +32,6 @@ To rozszerzenie pozwala na znalezienie miejsca, któremu odpowiada dany
 adres IP - miasto, stan, kraj, szereoko¶æ i d³ugo¶æ geograczna czy
 inne informacje, takie jak ISP czy typ po³±czenia.
 
-
 To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
