@@ -1,7 +1,7 @@
 %define		_modname	geoip
 %define		_status		beta
 Summary:	%{_modname} - Map IP address to geographic places
-Summary(pl.UTF-8):   %{_modname} - odwzorowanie adresów IP w miejsca geograficzne
+Summary(pl.UTF-8):	%{_modname} - odwzorowanie adresów IP w miejsca geograficzne
 Name:		php-pecl-%{_modname}
 Version:	0.2.0
 Release:	1
