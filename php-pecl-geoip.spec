@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	%{_modname} - odwzorowanie adresów IP w miejsca geograficzne
 Name:		php-pecl-%{_modname}
 Version:	1.0.3
 Release:	1
-License:	PHP
+License:	PHP 3.0.1
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	7c534b67f4eb0fe38f0f0f46a8b2ab52
