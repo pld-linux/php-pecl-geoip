@@ -3,12 +3,12 @@
 Summary:	%{_modname} - Map IP address to geographic places
 Summary(pl.UTF-8):	%{_modname} - odwzorowanie adresów IP w miejsca geograficzne
 Name:		php-pecl-%{_modname}
-Version:	1.0.6
+Version:	1.0.7
 Release:	1
 License:	PHP 3.0.1
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	68669de684a3c88ce925ac6cb3fd17b6
+# Source0-md5:	ca5397a1dacb62afd426c2065fc1e106
 URL:		http://pecl.php.net/package/geoip/
 BuildRequires:	GeoIP-devel
 BuildRequires:	php-devel >= 3:5.0.0
