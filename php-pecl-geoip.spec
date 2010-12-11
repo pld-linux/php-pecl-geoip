@@ -4,7 +4,7 @@ Summary:	%{_modname} - Map IP address to geographic places
 Summary(pl.UTF-8):	%{_modname} - odwzorowanie adresów IP w miejsca geograficzne
 Name:		php-pecl-%{_modname}
 Version:	1.0.7
-Release:	2
+Release:	3
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
