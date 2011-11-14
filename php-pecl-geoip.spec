@@ -11,7 +11,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	65263ac6d1c335f22ce818b3253912a5
 Patch0:		find_libgeoip.patch
 URL:		http://pecl.php.net/package/geoip/
-BuildRequires:	GeoIP-devel
+BuildRequires:	GeoIP-devel > 1.4.0
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
