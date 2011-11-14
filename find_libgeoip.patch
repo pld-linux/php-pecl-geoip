@@ -1,0 +1,18 @@
+fix lookup of "for LGPL compatible GeoIP libs
+
+the find is pretty heavy on builders:
+find /usr/lib/ -name libGeoIP.*.*.*.*
+
+just issue echo, as we know the library is not in subdir
+
+--- php-pecl-geoip-1.0.8/config.m4~	2011-11-14 09:52:06.000000000 +0200
++++ php-pecl-geoip-1.0.8/config.m4	2011-11-14 09:54:12.605545198 +0200
+@@ -83,7 +83,7 @@
+ 
+   # Check to see if we are using the LGPL library (version 1.4.0 and newer)
+   AC_MSG_CHECKING([for LGPL compatible GeoIP libs])
+-  libgeoip_full_version=`find $GEOIP_DIR/$PHP_LIBDIR/ -name libGeoIP.\*.\*.\*.\* | cut -d . -f 2-5 | sort`
++  libgeoip_full_version=`echo $GEOIP_DIR/$PHP_LIBDIR/libGeoIP.*.*.*.* | cut -d . -f 2-5 | sort`
+   for lines in $libgeoip_full_version; do
+     ac_IFS=$IFS
+     IFS="."

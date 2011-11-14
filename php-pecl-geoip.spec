@@ -1,5 +1,3 @@
-# TODO
-# - this does find(1) for whole /usr: checking for LGPL compatible GeoIP libs... found 1004008
 %define		modname	geoip
 %define		status		status
 Summary:	%{modname} - Map IP address to geographic places
@@ -11,6 +9,7 @@ License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	65263ac6d1c335f22ce818b3253912a5
+Patch0:		find_libgeoip.patch
 URL:		http://pecl.php.net/package/geoip/
 BuildRequires:	GeoIP-devel
 BuildRequires:	php-devel >= 3:5.0.0
@@ -36,6 +35,7 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
+%patch0 -p1
 
 sed -i -e 's,GEOIP_DIR/lib,GEOIP_DIR/%{_lib},g' config.m4
 
