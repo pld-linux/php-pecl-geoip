@@ -1,14 +1,16 @@
-%define		_modname	geoip
-%define		_status		status
-Summary:	%{_modname} - Map IP address to geographic places
-Summary(pl.UTF-8):	%{_modname} - odwzorowanie adresów IP w miejsca geograficzne
-Name:		php-pecl-%{_modname}
-Version:	1.0.7
-Release:	3
+# TODO
+# - this does find(1) for whole /usr: checking for LGPL compatible GeoIP libs... found 1004008
+%define		modname	geoip
+%define		status		status
+Summary:	%{modname} - Map IP address to geographic places
+Summary(pl.UTF-8):	%{modname} - odwzorowanie adresów IP w miejsca geograficzne
+Name:		php-pecl-%{modname}
+Version:	1.0.8
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	ca5397a1dacb62afd426c2065fc1e106
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	65263ac6d1c335f22ce818b3253912a5
 URL:		http://pecl.php.net/package/geoip/
 BuildRequires:	GeoIP-devel
 BuildRequires:	php-devel >= 3:5.0.0
@@ -22,37 +24,36 @@ This PHP extension allows you to find the location of an IP address -
 City, State, Country, Longitude, Latitude, and other information as
 all, such as ISP and connection type.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 To rozszerzenie pozwala na znalezienie miejsca, któremu odpowiada dany
 adres IP - miasto, stan, kraj, szerokość i długość geograficzna czy
 inne informacje, takie jak ISP czy typ połączenia.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{modname}-%{version}/* .
 
-sed -i -e 's,GEOIP_DIR/lib,GEOIP_DIR/%{_lib},g' %{_modname}-%{version}/config.m4
+sed -i -e 's,GEOIP_DIR/lib,GEOIP_DIR/%{_lib},g' config.m4
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
-
 %{__make} install \
-	-C %{_modname}-%{version} \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -68,6 +69,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/{README,ChangeLog}
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc README ChangeLog
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
