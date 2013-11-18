@@ -20,7 +20,7 @@ Suggests:	GeoIP-db-Country
 Suggests:	GeoIP-db-IPASNum
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
-Provides:	php(geoip)
+Provides:	php(geoip) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
