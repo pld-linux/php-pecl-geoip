@@ -13,7 +13,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		find_libgeoip.patch
 URL:		http://pecl.php.net/package/geoip/
 BuildRequires:	%{php_name}-devel >= 3:5.0.0
-BuildRequires:	GeoIP-devel > 1.4.0
+BuildRequires:	GeoIP-devel >= 1.4.0
 BuildRequires:	rpmbuild(macros) >= 1.650
 Suggests:	GeoIP-db-City
 Suggests:	GeoIP-db-Country
