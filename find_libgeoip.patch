@@ -5,10 +5,11 @@ find /usr/lib/ -name libGeoIP.*.*.*.*
 
 just issue echo, as we know the library is not in subdir
 
---- php-pecl-geoip-1.0.8/config.m4~	2011-11-14 09:52:06.000000000 +0200
-+++ php-pecl-geoip-1.0.8/config.m4	2011-11-14 09:54:12.605545198 +0200
-@@ -83,7 +83,7 @@
- 
+diff -urNp -x '*.orig' php53-pecl-geoip-1.1.1.org/config.m4 php53-pecl-geoip-1.1.1/config.m4
+--- php53-pecl-geoip-1.1.1.org/config.m4	2016-08-19 02:19:01.000000000 +0200
++++ php53-pecl-geoip-1.1.1/config.m4	2023-03-02 10:23:02.300043627 +0100
+@@ -109,7 +109,7 @@ if test "$PHP_GEOIP" != "no"; then
+   
    # Check to see if we are using the LGPL library (version 1.4.0 and newer)
    AC_MSG_CHECKING([for LGPL compatible GeoIP libs])
 -  libgeoip_full_version=`find $GEOIP_DIR/$PHP_LIBDIR/ -name libGeoIP.\*.\*.\*.\* | cut -d . -f 2-5 | sort`
