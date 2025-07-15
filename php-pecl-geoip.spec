@@ -41,8 +41,8 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 sed -i -e 's,GEOIP_DIR/lib,GEOIP_DIR/%{_lib},g' config.m4
 
